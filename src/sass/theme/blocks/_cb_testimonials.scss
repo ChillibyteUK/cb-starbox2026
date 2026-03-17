@@ -1,0 +1,110 @@
+.testimonials {
+  background-color: var(--col-star-blue);
+
+  .testimonials__swiper {
+    position: relative;
+    padding-inline: 3.5rem;
+  }
+
+  .testimonials__button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 2.5rem;
+    height: 100%;
+    border: none;
+    border-radius: 0.2rem;
+    background: #ffffff1a;
+    color: var(--col-light-regular);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &::after {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: #ffffff33;
+      outline: none;
+    }
+  }
+
+  .testimonials__button-prev {
+    left: 0.5rem;
+
+    &::after {
+      content: "prev";
+      font-family: swiper-icons;
+    }
+  }
+
+  .testimonials__button-next {
+    right: 0.5rem;
+
+    &::after {
+      content: "next";
+      font-family: swiper-icons;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .testimonials__swiper {
+      padding-inline: 0;
+      padding-bottom: 3.5rem;
+    }
+
+    .testimonials__button {
+      top: auto;
+      bottom: 0.25rem;
+      transform: none;
+    }
+
+    .testimonials__button-prev {
+      left: calc(50% - 3rem);
+    }
+
+    .testimonials__button-next {
+      right: calc(50% - 3rem);
+    }
+  }
+
+  .container {
+    border-radius: var(--radius-small);
+    background-image: url(../img/starbox-gradient-2.webp);
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    background-color: var(--col-star-blue-60);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    font-size: 2.2rem;
+  }
+  .testimonial__meta {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  .testimonial__image {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.2rem;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .testimonial__author {
+    font-size: 1.2rem;
+  }
+  .testimonial__role {
+    font-size: 0.9rem;
+  }
+}

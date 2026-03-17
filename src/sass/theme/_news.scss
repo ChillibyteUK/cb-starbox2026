@@ -1,0 +1,298 @@
+.split-page.blog {
+  h2 {
+    padding-top: 80px;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  .split-image {
+    position: sticky;
+    top: calc(var(--h-top) + 3rem);
+    height: calc(100vh - var(--h-top) - 3rem);
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-regular);
+  }
+
+  p {
+    color: var(--col-star-blue-60);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-block: 1rem 1.5rem;
+
+    a {
+      color: var(--col-star-blue);
+      font-weight: var(--fw-medium);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.author {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--col-star-blue-80);
+}
+
+.blog-index {
+  background-color: var(--col-star-blue);
+  &__card {
+    border: 1px solid #fff3;
+    border-radius: 0.6rem;
+    flex-flow: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 28rem;
+    padding: 2rem;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    color: var(--col-white);
+    text-decoration: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    &::before {
+      background-image: radial-gradient(
+        circle at 70% 20%,
+        #a8d3fc24,
+        #1ba8ff00
+      );
+      opacity: 1;
+    }
+
+    &::after {
+      background-image: radial-gradient(
+        circle farthest-side at 100% 20%,
+        #41fcda59,
+        #41fcda00
+      );
+      opacity: 0;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    transition: border-color var(--transition);
+
+    &:hover {
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+
+      color: var(--col-white);
+      border-color: var(--col-light-regular);
+
+      .blog-index__title .text-swap__text {
+        &:first-child {
+          transform: translateY(-100%);
+        }
+
+        &[aria-hidden="true"] {
+          transform: translateY(0);
+        }
+      }
+
+      .blog-card-arrow {
+        background-color: var(--col-highlight);
+        color: var(--col-star-blue);
+      }
+    }
+
+    &:focus-visible {
+      .blog-index__title .text-swap__text {
+        &:first-child {
+          transform: translateY(-100%);
+        }
+
+        &[aria-hidden="true"] {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__image-wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    border-radius: var(--radius-small);
+    margin-bottom: 1rem;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .blog-card-arrow {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--radius-small);
+    background-color: var(--col-outline-regular);
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+    display: grid;
+    place-items: center;
+    color: var(--col-white);
+  }
+
+  &__date {
+    font-size: 0.8rem;
+  }
+
+  h3 {
+    font-size: 2.1rem;
+    font-weight: var(--fw-light);
+    font-family: var(--ff-heading);
+    color: var(--col-white);
+    text-transform: uppercase;
+    line-height: 1;
+    transition: transform var(--transition);
+  }
+
+  .blog-index__title {
+    .text-swap {
+      display: block;
+      line-height: 1;
+    }
+
+    .text-swap__mask {
+      position: relative;
+      block-size: auto;
+    }
+
+    .text-swap__inner {
+      position: relative;
+      display: block;
+      transform: translateY(0);
+    }
+
+    .text-swap__text {
+      display: block;
+      block-size: auto;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      transition: transform var(--transition);
+
+      &:first-child {
+        transform: translateY(0);
+      }
+
+      &[aria-hidden="true"] {
+        position: absolute;
+        inset: 0;
+        transform: translateY(100%);
+      }
+    }
+  }
+}
+
+.blog-related {
+  background-color: var(--col-star-blue);
+  background-image: radial-gradient(
+    circle farthest-side at 150%,
+    #41fcda61,
+    #fff0
+  );
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  color: var(--col-light-regular);
+  &__heading {
+    font-size: 1.4rem;
+    margin-bottom: 1.875rem;
+    text-transform: initial;
+  }
+  &__link {
+    position: relative;
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1.5rem;
+    flex-direction: column;
+    grid-template-rows: auto auto;
+    grid-template-columns: 0.75fr 4fr 2rem;
+    grid-auto-columns: 1fr;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    text-decoration: none;
+    align-items: center;
+    color: var(--col-light-regular);
+    &:hover {
+      color: var(--col-white);
+      .text-swap__inner {
+        transform: translateY(-50%);
+      }
+      .blog-related__arrow svg {
+        transform: rotate(-45deg);
+        opacity: 1;
+      }
+      .blog-related__meta {
+        opacity: 1;
+      }
+      .blog-related__line-line {
+        width: 100%;
+      }
+    }
+  }
+  &__dot {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    align-self: center;
+  }
+  &__meta {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    transition: opacity var(--transition);
+  }
+  &__title {
+    grid-area: 2 / 2 / 3 / 3;
+    max-width: 20rem;
+    text-transform: uppercase;
+    flex: 1;
+    font-family: var(--ff-heading);
+    font-size: 2.1rem;
+    font-weight: var(--fw-light);
+    line-height: 1.1;
+  }
+  &__line {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    height: 1px;
+    position: absolute;
+    inset: 0% 0% auto;
+    overflow: hidden;
+    background-color: var(--col-star-blue);
+  }
+  &__line-line {
+    height: 1px;
+    width: 0px;
+    position: absolute;
+    background-color: #fafafa;
+    transition: width var(--transition);
+  }
+  &__arrow svg {
+    opacity: 0.5;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    color: var(--col-light-regular);
+    transition:
+      transform var(--transition),
+      opacity var(--transition);
+  }
+}

@@ -1,0 +1,11 @@
+.latest-news {
+  background-color: var(--col-star-blue);
+  color: var(--col-white);
+  h2 {
+    font-size: 7.9rem;
+    font-family: var(--ff-heading);
+    font-weight: var(--fw-black);
+    text-transform: uppercase;
+    padding-block: 4rem;
+  }
+}

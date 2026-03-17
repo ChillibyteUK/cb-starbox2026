@@ -1,0 +1,4 @@
+{
+    "github.copilot.editor.enableCodeActions": false,
+    "github.copilot.chat.codeActions.enabled": false
+}

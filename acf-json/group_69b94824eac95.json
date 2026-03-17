@@ -1,0 +1,92 @@
+{
+    "key": "group_69b94824eac95",
+    "title": "Post",
+    "fields": [
+        {
+            "key": "field_69b948251324e",
+            "label": "Author",
+            "name": "author",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "None",
+                "110": "Sam Uwins",
+                "118": "Dan Hobbs",
+                "119": "Nick Tebb",
+                "120": "Mark Northam",
+                "121": "Holly Mitchell",
+                "198": "David Taylor",
+                "200": "Meghan Clark",
+                "202": "Mason King",
+                "204": "Katie Sanders",
+                "206": "Richard Piller",
+                "208": "Reece Jordan",
+                "210": "Jack Butcher",
+                "212": "Will Uwins",
+                "215": "Leah Ward",
+                "217": "Phillip Baugh",
+                "219": "Jed White",
+                "221": "Fran Baker"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "Select a team member (optional)",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69b966d5dacb1",
+            "label": "Card Title",
+            "name": "card_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773758175
+}

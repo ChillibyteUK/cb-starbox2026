@@ -1,0 +1,23 @@
+{
+  "key": "group_cb_latest_news",
+  "title": "CB Latest News",
+  "fields": [
+    {
+      "key": "field_cb_latest_news_title",
+      "label": "CB Latest News",
+      "name": "title",
+      "type": "message"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cb-latest-news"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

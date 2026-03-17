@@ -1,0 +1,23 @@
+{
+  "key": "group_cb_careers",
+  "title": "CB Careers",
+  "fields": [
+    {
+      "key": "field_cb_careers_title",
+      "label": "CB Careers",
+      "name": "title",
+      "type": "message"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cb-careers"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

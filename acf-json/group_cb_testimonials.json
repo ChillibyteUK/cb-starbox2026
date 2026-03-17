@@ -1,0 +1,23 @@
+{
+  "key": "group_cb_testimonials",
+  "title": "CB Testimonials",
+  "fields": [
+    {
+      "key": "field_cb_testimonials_title",
+      "label": "CB Testimonials",
+      "name": "title",
+      "type": "message"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cb-testimonials"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

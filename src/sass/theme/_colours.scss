@@ -1,0 +1,14 @@
+/* =========================
+   COLOURS — utilities
+   ========================= */
+
+.grad-main {
+  background: var(--grad-main);
+}
+
+.bg-grad-green {
+  background-color: var(--col-star-blue);
+  background-image: var(--grad-green);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
