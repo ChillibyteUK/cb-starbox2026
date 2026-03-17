@@ -22701,10 +22701,12 @@ span a {
 }
 .cb-cards .cb-card {
   border: 1px solid var(--col-outline-regular);
+  transition: border-color var(--transition), background-color var(--transition);
   border-radius: 0.25rem;
   padding: 1rem;
   height: 100%;
   text-align: center;
+  text-decoration: none;
 }
 .cb-cards .cb-card__title {
   font-size: 4.5em;
@@ -22718,6 +22720,10 @@ span a {
 }
 .cb-cards .cb-card__description {
   margin-bottom: 0;
+}
+.cb-cards a.cb-card:hover {
+  border-color: var(--col-highlight);
+  background-color: var(--col-outline-regular);
 }
 @media (min-width: 992px) {
   .cb-cards .cb-card {
@@ -22769,7 +22775,7 @@ span a {
 .service-nav__item button:hover .text-swap__inner {
   transform: translateY(-50%);
 }
-.service-nav h3, .service-nav .h3 {
+.service-nav h2, .service-nav .h2 {
   font-size: 5rem;
   font-weight: var(--fw-light);
   font-family: var(--ff-heading);

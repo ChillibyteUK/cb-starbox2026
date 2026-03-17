@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Split Page - Services
+ * Template for displaying Single Case Study
  *
  * @package cb-starbox2026
  */

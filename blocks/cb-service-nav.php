@@ -48,14 +48,14 @@ if ( $services_page instanceof WP_Post ) {
 								]</div>
 							<div class="col-md-9">
 								<div class="service-nav__item-title">
-									<h3 class="text-swap" aria-label="<?= esc_attr( $service_title ); ?>">
+									<h2 class="text-swap" aria-label="<?= esc_attr( $service_title ); ?>">
 										<span class="text-swap__mask">
 											<span class="text-swap__inner">
 												<span class="text-swap__text"><?= esc_html( $service_title ); ?></span>
 												<span class="text-swap__text" aria-hidden="true"><?= esc_html( $service_title ); ?></span>
 											</span>
 										</span>
-									</h3>
+									</h2>
 								</div>
 							</div>
 							<div class="col-md-1">+</div>
