@@ -57,6 +57,8 @@
 
 html {
   font-size: 18px;
+  font-variant-numeric: normal;
+  font-feature-settings: "zero" 0;
 }
 
 body,

@@ -232,3 +232,57 @@ function cb_add_primary_nav_data_text( $atts, $item, $args ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'cb_add_primary_nav_data_text', 10, 3 );
+
+/**
+ * Register rewrite rule for the style guide endpoint.
+ */
+function cb_register_style_guide_endpoint() {
+	add_rewrite_rule( '^style-guide/?$', 'index.php?cb_style_guide=1', 'top' );
+}
+add_action( 'init', 'cb_register_style_guide_endpoint' );
+
+/**
+ * Register query var used by the style guide endpoint.
+ *
+ * @param array $vars Existing query vars.
+ * @return array
+ */
+function cb_register_style_guide_query_var( $vars ) {
+	$vars[] = 'cb_style_guide';
+	return $vars;
+}
+add_filter( 'query_vars', 'cb_register_style_guide_query_var' );
+
+/**
+ * Render style guide endpoint for authenticated users only.
+ */
+function cb_render_style_guide_endpoint() {
+	if ( ! get_query_var( 'cb_style_guide' ) ) {
+		return;
+	}
+
+	if ( ! is_user_logged_in() ) {
+		auth_redirect();
+	}
+
+	require get_stylesheet_directory() . '/style.php';
+	exit;
+}
+add_action( 'template_redirect', 'cb_render_style_guide_endpoint' );
+
+/**
+ * Flush rewrite rules once after endpoint registration changes.
+ */
+function cb_maybe_flush_style_guide_rewrite() {
+	$version = '1';
+	$option  = 'cb_style_guide_endpoint_rewrite_version';
+
+	if ( get_option( $option ) === $version ) {
+		return;
+	}
+
+	cb_register_style_guide_endpoint();
+	flush_rewrite_rules( false );
+	update_option( $option, $version );
+}
+add_action( 'init', 'cb_maybe_flush_style_guide_rewrite', 20 );

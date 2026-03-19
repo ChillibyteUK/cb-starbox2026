@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme colour reference output from _props.scss
+ * Theme colour reference output from token source files.
  *
  * @package cb-starbox2026
  */
@@ -9,13 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Path to _props.scss.
-$file_path = get_stylesheet_directory() . '/src/sass/theme/_props.scss';
-if ( ! file_exists( $file_path ) ) {
-	echo '<p>Could not find _props.scss</p>';
+// Resolve token source file.
+$candidates = array(
+	get_stylesheet_directory() . '/src/sass/theme/_tokens.scss',
+	get_stylesheet_directory() . '/src/sass/theme/_props.scss',
+	get_stylesheet_directory() . '/css/child-theme.css',
+);
+
+$file_path = '';
+foreach ( $candidates as $candidate ) {
+	if ( file_exists( $candidate ) ) {
+		$file_path = $candidate;
+		break;
+	}
+}
+
+if ( '' === $file_path ) {
+	echo '<p>Could not find token source file.</p>';
 	return;
 }
 
+// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 $file_contents = file_get_contents( $file_path );
 
 preg_match_all( '/--(?<name>[a-z0-9\-]+):\s*(?<value>[^;]+);/i', $file_contents, $matches, PREG_SET_ORDER );
@@ -78,7 +92,7 @@ ksort( $colours );
 </style>
 <div class="container-xl">
 	<h1>Colours</h1>
-	<p>From <code>src/sass/theme/_props.scss</code></p>
+	<p>From <code><?= esc_html( str_replace( get_stylesheet_directory() . '/', '', $file_path ) ); ?></code></p>
 
 	<div class="colour-grid">
 		<?php
