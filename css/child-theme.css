@@ -23557,6 +23557,260 @@ span a {
   color: var(--col-star-blue);
 }
 
+.showcase-scroller {
+  position: relative;
+}
+.showcase-scroller .panel-one,
+.showcase-scroller .panel-four {
+  min-height: 100svh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.showcase-scroller__img-two {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  width: min(30vw, 300px);
+  height: min(30vw, 300px);
+  max-width: none;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.showcase-scroller .panel-two {
+  position: relative;
+  min-height: 200svh;
+  background: linear-gradient(to bottom, #fff 0 50%, var(--col-star-blue) 50% 100%);
+  overflow: visible;
+}
+.showcase-scroller .panel-three {
+  position: relative;
+  min-height: 240svh;
+  background: var(--col-white);
+  overflow: visible;
+  isolation: isolate;
+  --panel-three-progress: 0;
+}
+.showcase-scroller .showcase-scroller__panel-three-stage {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 3;
+}
+.showcase-scroller .showcase-scroller__panel-three-card {
+  position: absolute;
+  left: calc(var(--p3-final-x) * 1%);
+  top: calc(var(--p3-final-y) * 1%);
+  z-index: var(--p3-z-index, 1);
+  width: clamp(160px, 18vw, 280px);
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  transform: translate(calc(-50% + (1 - var(--panel-three-progress)) * var(--p3-from-x)), calc(-50% + (1 - var(--panel-three-progress)) * var(--p3-from-y))) scale(calc(var(--p3-start-scale) + (1 - var(--p3-start-scale)) * var(--panel-three-progress)));
+  opacity: calc(0.15 + 0.85 * var(--panel-three-progress));
+}
+.showcase-scroller .showcase-scroller__panel-three-card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+}
+.showcase-scroller .showcase-scroller__panel-three-card:nth-of-type(5) {
+  width: clamp(190px, 35vw, 350px);
+}
+.showcase-scroller .showcase-scroller__stage {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+}
+.showcase-scroller .showcase-scroller__title-wrap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding-inline: 2rem;
+  z-index: 1;
+}
+.showcase-scroller .showcase-scroller__title {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: var(--ff-heading);
+  font-size: min(15vw, 10rem);
+  font-weight: var(--fw-black);
+  line-height: 0.95;
+  text-wrap: balance;
+  margin: 0;
+  --title-fill-offset: 100%;
+}
+.showcase-scroller .showcase-scroller__title span {
+  display: block;
+}
+.showcase-scroller .showcase-scroller__title-base,
+.showcase-scroller .showcase-scroller__title-fill {
+  inset: 0;
+}
+.showcase-scroller .showcase-scroller__title-base {
+  color: var(--col-star-blue);
+}
+.showcase-scroller .showcase-scroller__title-fill {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  pointer-events: none;
+  clip-path: inset(var(--title-fill-offset) 0 0 0);
+}
+.showcase-scroller .showcase-scroller__media-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+.showcase-scroller .showcase-scroller__media-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.showcase-scroller .showcase-scroller__media-slot {
+  position: absolute;
+  width: clamp(140px, 15vw, 230px);
+  aspect-ratio: 3/4;
+  --slot-tilt: 0deg;
+  --slot-reveal: 0;
+  transform: translate(-50%, -50%);
+}
+.showcase-scroller .slot--left-one {
+  top: 25%;
+  left: 25%;
+  --slot-tilt: -8deg;
+}
+@media (min-width: 768px) {
+  .showcase-scroller .slot--left-one {
+    top: 27%;
+    left: 21%;
+  }
+}
+@media (min-width: 992px) {
+  .showcase-scroller .slot--left-one {
+    top: 27%;
+    left: 21%;
+  }
+}
+@media (min-width: 1200px) {
+  .showcase-scroller .slot--left-one {
+    top: 23%;
+    left: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  .showcase-scroller .slot--left-one {
+    top: 30%;
+    left: 20%;
+  }
+}
+.showcase-scroller .slot--left-two {
+  top: 30%;
+  right: -10%;
+  --slot-tilt: 8deg;
+}
+@media (min-width: 768px) {
+  .showcase-scroller .slot--left-two {
+    top: 22%;
+    right: 0%;
+  }
+}
+@media (min-width: 992px) {
+  .showcase-scroller .slot--left-two {
+    top: 30%;
+    right: 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .showcase-scroller .slot--left-two {
+    top: 23%;
+    right: 10%;
+  }
+}
+@media (min-width: 1400px) {
+  .showcase-scroller .slot--left-two {
+    top: 25%;
+    right: 10%;
+  }
+}
+.showcase-scroller .slot--bottom-centre {
+  top: 80%;
+  left: 50%;
+  --slot-tilt: -6deg;
+}
+@media (min-width: 992px) {
+  .showcase-scroller .slot--bottom-centre {
+    top: 80%;
+    right: 50%;
+  }
+}
+@media (min-width: 1400px) {
+  .showcase-scroller .slot--bottom-centre {
+    top: 70%;
+    right: 50%;
+  }
+}
+.showcase-scroller .showcase-scroller__media-item {
+  position: absolute;
+  inset: 0;
+}
+.showcase-scroller .showcase-scroller__media-tilt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 84%;
+  height: 84%;
+  overflow: hidden;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(var(--slot-inline-tilt, var(--slot-tilt)));
+}
+.showcase-scroller .showcase-scroller__media-tilt img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+}
+.showcase-scroller .showcase-scroller__media-item--top {
+  z-index: 1;
+  overflow: visible;
+  clip-path: inset(0 0 calc(var(--slot-reveal) * 100%) 0);
+}
+.showcase-scroller .showcase-scroller__media-item--bottom {
+  z-index: 2;
+  overflow: visible;
+  clip-path: inset(calc((1 - var(--slot-reveal)) * 100%) 0 0 0);
+}
+@media (max-width: 820px) {
+  .showcase-scroller .showcase-scroller__media-slot {
+    width: clamp(100px, 31vw, 180px);
+  }
+  .showcase-scroller .showcase-scroller__panel-three-card {
+    width: clamp(120px, 30vw, 190px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase-scroller .showcase-scroller__media-item--top,
+  .showcase-scroller .showcase-scroller__media-item--bottom {
+    clip-path: none;
+  }
+}
+
 body {
   background-color: var(--col-white);
 }

@@ -17,6 +17,24 @@ function acf_blocks() {
 
 		// INSERT NEW BLOCKS HERE.
 
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_showcase_scroller',
+                'title'           => __( 'CB Showcase Scroller' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-showcase-scroller.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
         acf_register_block_type(
             array(
                 'name'            => 'cb_careers',
