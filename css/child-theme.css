@@ -23879,13 +23879,21 @@ main {
   color: var(--col-star-blue);
   text-transform: uppercase;
   font-family: var(--ff-heading);
-  font-size: 6.3rem;
+  font-size: clamp(3.5rem, 6vw, 6.3rem);
   font-weight: 400;
   line-height: 1;
 }
+.split-page .container p, .split-page .wp-block-group:not(.alignfull) p,
+.split-page li {
+  color: var(--col-star-blue-60);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
 
 .split-page.team h1, .split-page.team .h1 {
-  font-size: 8.7rem;
+  font-size: clamp(6rem, 8vw, 8.7rem);
 }
 .split-page.team .container p, .split-page.team .wp-block-group:not(.alignfull) p {
   color: var(--col-star-blue-60);
@@ -24042,7 +24050,7 @@ main {
   color: var(--col-star-blue);
   text-transform: uppercase;
   font-family: var(--ff-heading);
-  font-size: 6.3rem;
+  font-size: clamp(3.5rem, 6vw, 6.3rem);
   font-weight: 400;
   line-height: 1;
   padding-bottom: 3rem;
