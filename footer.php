@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	setFooterPadding();
 	new ResizeObserver(setFooterPadding).observe(document.body);
 
-	// Logo text: fit width to container, crop at 60% height
+	/// Logo text: fit width to container, crop at 75% height
 	var logo = document.querySelector('.footer__logo');
 	var logoWrapper = document.querySelector('.footer__logo-wrapper');
 	if (logo && logoWrapper) {
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (!textWidth) return;
 			var px = logoWrapper.clientWidth / textWidth * 100;
 			logo.style.fontSize = px + 'px';
-			logoWrapper.style.height = (px * 0.6) + 'px';
+			logoWrapper.style.height = (px * 0.75) + 'px';
 		}
 		fitLogoText();
 		new ResizeObserver(fitLogoText).observe(logoWrapper);
