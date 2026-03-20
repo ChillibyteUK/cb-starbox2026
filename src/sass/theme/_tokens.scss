@@ -2,6 +2,7 @@ $col-primary: #27383a;
 $col-dark: #222222;
 $col-darkest: #4a4a4a;
 $col-light: #f2f2f2;
+$offcanvas-horizontal-width: 500px;
 
 :root {
   /* =========================
@@ -27,14 +28,6 @@ $col-light: #f2f2f2;
   --radius-regular: 0.625rem;
   --padding-regular: 2.5rem;
   --padding-regular-mobile: 1rem;
-
-  --grad-main: linear-gradient(
-    to bottom,
-    var(--col-white),
-    var(--col-lime-100),
-    var(--col-lime-200),
-    var(--col-lime-300)
-  );
 
   --grad-green: radial-gradient(
     circle closest-corner at 80%,
@@ -90,4 +83,5 @@ $col-light: #f2f2f2;
 
   --h-top: 57px;
   --h-top-desktop: 57px;
+
 }

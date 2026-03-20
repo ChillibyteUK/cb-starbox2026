@@ -12,11 +12,11 @@ $colour = get_field( 'colour' ) ? get_field( 'colour' ) : 'pink';
 ?>
 <section class="page-hero page-hero--<?= esc_attr( strtolower( $colour ) ); ?> d-flex align-items-center">
 	<div class="container py-5">
-		<div class="row">
-			<div class="col-md-7">
+		<div class="row pt-5 pt-lg-0">
+			<div class="col-lg-7 mb-4 mb-lg-0">
 				<h1><?= esc_html( get_field( 'title' ) ); ?></h1>
 			</div>
-			<div class="col-md-4 offset-md-1 my-auto">
+			<div class="col-lg-4 offset-lg-1 my-auto">
 				<div class="page-hero__content">
 					<?= wp_kses_post( get_field( 'content' ) ); ?>
 				</div>

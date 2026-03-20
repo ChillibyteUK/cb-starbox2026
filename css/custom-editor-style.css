@@ -20,13 +20,6 @@
   --radius-regular: 0.625rem;
   --padding-regular: 2.5rem;
   --padding-regular-mobile: 1rem;
-  --grad-main: linear-gradient(
-    to bottom,
-    var(--col-white),
-    var(--col-lime-100),
-    var(--col-lime-200),
-    var(--col-lime-300)
-  );
   --grad-green: radial-gradient(
     circle closest-corner at 80%,
     #41fcda59,
@@ -96,13 +89,6 @@
   --radius-regular: 0.625rem;
   --padding-regular: 2.5rem;
   --padding-regular-mobile: 1rem;
-  --grad-main: linear-gradient(
-    to bottom,
-    var(--col-white),
-    var(--col-lime-100),
-    var(--col-lime-200),
-    var(--col-lime-300)
-  );
   --grad-green: radial-gradient(
     circle closest-corner at 80%,
     #41fcda59,

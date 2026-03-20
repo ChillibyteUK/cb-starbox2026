@@ -126,7 +126,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 						wp_nav_menu(
 							array(
 								'theme_location'  => 'primary_nav',
-								'container_class' => 'container-xl w-100',
+								'container_class' => 'container w-100',
 								'menu_class'      => 'navbar-nav justify-content-between gap-1',
 								'fallback_cb'     => '',
 								'menu_id'         => 'navbarr',
