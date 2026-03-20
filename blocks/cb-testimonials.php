@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var swiper = new Swiper(swiperEl, {
 		loop: true,
 		autoplay: {
-			delay: 5000,
+			delay: 500000,
 			disableOnInteraction: true,
 		},
 		effect: 'fade',

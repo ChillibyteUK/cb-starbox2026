@@ -23172,9 +23172,11 @@ span a {
   }
   .testimonials .testimonials__button-prev {
     left: calc(50% - 3rem);
+    display: none;
   }
   .testimonials .testimonials__button-next {
     right: calc(50% - 3rem);
+    display: none;
   }
 }
 .testimonials .container, .testimonials .wp-block-group:not(.alignfull) {
@@ -23186,10 +23188,13 @@ span a {
 }
 .testimonials .swiper-slide {
   background-color: var(--col-star-blue-60);
-  color: white;
+  color: white !important;
   padding: 1rem;
   border-radius: 0.2rem;
   font-size: 2.2rem;
+}
+.testimonials .swiper-slide p {
+  color: white !important;
 }
 .testimonials .testimonial__meta {
   display: flex;

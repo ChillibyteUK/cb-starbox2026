@@ -66,10 +66,12 @@
 
     .testimonials__button-prev {
       left: calc(50% - 3rem);
+      display: none;
     }
-
+    
     .testimonials__button-next {
       right: calc(50% - 3rem);
+      display: none;
     }
   }
 
@@ -83,7 +85,10 @@
 
   .swiper-slide {
     background-color: var(--col-star-blue-60);
-    color: white;
+    color: white !important;
+    p {
+      color: white !important;
+    }
     padding: 1rem;
     border-radius: 0.2rem;
     font-size: 2.2rem;
