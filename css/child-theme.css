@@ -22018,7 +22018,7 @@ strong {
   color: var(--col-star-blue);
 }
 .footer__business {
-  font-size: 80px;
+  font-size: clamp(50px, 8vw, 80px);
   font-family: var(--ff-heading);
   font-weight: var(--fw-black);
   color: var(--col-star-blue);
@@ -22062,7 +22062,7 @@ strong {
 }
 .footer__colophon {
   font-family: var(--ff-body);
-  font-size: var(--fs-100);
+  font-size: var(--fs-50);
 }
 
 .split-page.blog h2, .split-page.blog .h2 {
@@ -22702,7 +22702,7 @@ span a {
   color: var(--col-white);
 }
 .cb-cards h2, .cb-cards .h2 {
-  font-size: 7.9rem;
+  font-size: clamp(5.5rem, 8vw, 7.9rem);
   font-family: var(--ff-heading);
   font-weight: var(--fw-black);
   text-transform: uppercase;
@@ -22718,7 +22718,7 @@ span a {
   text-decoration: none;
 }
 .cb-cards .cb-card__title {
-  font-size: 4.5em;
+  font-size: clamp(3.5rem, 4.5vw, 4.5rem);
   font-weight: 400;
   font-family: var(--ff-heading);
   line-height: 0.9;
@@ -22872,7 +22872,7 @@ span a {
   color: var(--col-white);
 }
 .latest-news h2, .latest-news .h2 {
-  font-size: 7.9rem;
+  font-size: clamp(5.5rem, 8vw, 7.9rem);
   font-family: var(--ff-heading);
   font-weight: var(--fw-black);
   text-transform: uppercase;
@@ -22994,10 +22994,25 @@ span a {
 }
 .team-feature__members_grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
   grid-auto-columns: 1fr;
   gap: 1.5rem;
+}
+@media (min-width: 576px) {
+  .team-feature__members_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .team-feature__members_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .team-feature__members_grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 .team-feature__member {
   text-decoration: none;

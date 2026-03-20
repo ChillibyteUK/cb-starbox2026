@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="footer__business mb-3">Your business<br>is our business</div>
 				<a href="/contact/" class="btn btn-dark">Get in touch</a>
 			</div>
-			<div class="col-12 col-sm-4 col-md-2">
+			<div class="col-6 col-sm-4 col-md-2">
 				<div class="footer-title mb-4">Links</div>
 				<?=
 				wp_nav_menu(
@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 				);
 				?>
 			</div>
-            <div class="col-12 col-sm-4 col-md-2">
+            <div class="col-6 col-sm-4 col-md-2">
 				<div class="footer-title mb-4">More</div>
 				<?=
 				wp_nav_menu(
@@ -66,7 +66,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="footer__logo">Starbox</div>
 		</div>
 	</div>
-	<div class="container px-4 px-md-5 py-4 footer__colophon d-flex flex-wrap justify-content-between align-items-center">
+	<div class="container px-4 px-md-5 py-4 footer__colophon d-flex gap-2 flex-wrap justify-content-between align-items-center">
 		<div>
 		&copy; <?= esc_html( gmdate( 'Y' ) ); ?> StarBox is a trading name of <a href="https://www.carpenterbox.com/" target="_blank">Carpenter Box Limited</a><br>
 		<?= do_shortcode( '[contact_phone]' ); ?> / <?= do_shortcode( '[contact_email]' ); ?>

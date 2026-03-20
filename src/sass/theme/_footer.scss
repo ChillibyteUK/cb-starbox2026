@@ -41,7 +41,7 @@
   }
 
   &__business {
-    font-size: 80px;
+    font-size: clamp(50px, 8vw, 80px);
     font-family: var(--ff-heading);
     font-weight: var(--fw-black);
     color: var(--col-star-blue);
@@ -89,6 +89,6 @@
 
   &__colophon {
     font-family: var(--ff-body);
-    font-size: var(--fs-100);
+    font-size: var(--fs-50);
   }
 }
