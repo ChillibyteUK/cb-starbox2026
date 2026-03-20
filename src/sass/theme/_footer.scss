@@ -53,6 +53,7 @@
     list-style: none;
     padding-inline-start: 0;
     font-weight: var(--fw-light);
+    margin-block-start: 0;
     li {
       padding-bottom: 0.25rem;
     }
@@ -67,9 +68,9 @@
   }
 
   .footer-title {
-    font-size: var(--fs-200);
+    font-size: var(--fs-100);
     font-family: var(--ff-body);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--col-star-blue);
   }
 

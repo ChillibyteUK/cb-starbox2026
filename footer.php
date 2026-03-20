@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 				<a href="/contact/" class="btn btn-dark">Get in touch</a>
 			</div>
 			<div class="col-6 col-sm-4 col-md-2">
-				<div class="footer-title mb-4">Links</div>
+				<div class="footer-title">Links</div>
 				<?=
 				wp_nav_menu(
 					array(
@@ -38,7 +38,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
             <div class="col-6 col-sm-4 col-md-2">
-				<div class="footer-title mb-4">More</div>
+				<div class="footer-title">More</div>
 				<?=
 				wp_nav_menu(
 					array(
@@ -49,7 +49,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
             <div class="col-12 col-sm-4 col-md-2">
-				<div class="footer-title mb-4">Follow us</div>
+				<div class="footer-title">Follow us</div>
 				<?=
 				wp_nav_menu(
 					array(

@@ -22029,6 +22029,7 @@ strong {
   list-style: none;
   padding-inline-start: 0;
   font-weight: var(--fw-light);
+  margin-block-start: 0;
 }
 .footer .footer__menu li {
   padding-bottom: 0.25rem;
@@ -22042,9 +22043,9 @@ strong {
   text-decoration: underline;
 }
 .footer .footer-title {
-  font-size: var(--fs-200);
+  font-size: var(--fs-100);
   font-family: var(--ff-body);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-medium);
   color: var(--col-star-blue);
 }
 .footer .footer__logo-wrapper {
