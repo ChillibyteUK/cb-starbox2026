@@ -117,7 +117,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 			<nav class="navbar">
 				<button class="menu" id="menutoggle" type="button" data-bs-toggle="offcanvas"
 					data-bs-target="#rightOffcanvas" aria-controls="rightOffcanvas">
-					Menu <i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-bars"></i>
 				</button>
 				<div class="offcanvas offcanvas-end" tabindex="-1" id="rightOffcanvas"
 					aria-labelledby="rightOffcanvasLabel">

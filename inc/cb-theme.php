@@ -494,7 +494,7 @@ add_filter(
 add_filter(
 	'gform_submit_button',
 	function ( $button, $form ) {
-    	return '<button class="gform_button button id-button" style="background-color:transparent;" id="gform_submit_button_' . $form['id'] . '">' . esc_html( $form['button']['text'] ) . '</button>';
+    	return '<button class="gform_button btn" id="gform_submit_button_' . $form['id'] . '">' . esc_html( $form['button']['text'] ) . '</button>';
 	},
 	10,
 	2

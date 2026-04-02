@@ -30,13 +30,18 @@
   }
 
   button.menu {
-    background-color: #ffffffcc;
-    color: var(--col-primary-400);
+    background-color: #41FCDAcc;
+    color: var(--col-dark-blue);
     border: none;
-    border-bottom-left-radius: 0.1rem;
+    border-radius: 0.5rem;
     text-transform: uppercase;
     padding: 0.5rem 1rem;
     z-index: 9999;
+    transition: color var(--transition), background-color var(--transition);
+    &:hover {
+      color: #41FCDA;
+      background-color: var(--col-dark-blue);
+    }
   }
 
   .offcanvas-body {

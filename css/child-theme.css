@@ -21856,20 +21856,20 @@ strong {
   text-transform: uppercase;
   padding: var(--btn-py) var(--btn-px);
   border-radius: 6px;
-  border: var(--btn-border-w) solid var(--_bd);
+  border: var(--btn-border-w) solid var(--_bg);
   background: var(--_bg);
   color: var(--_fg);
   font-family: var(--ff-body);
   font-weight: var(--fw-ui);
-  font-size: var(--fs-200);
+  font-size: var(--fs-100);
   line-height: 1;
   transition: background-color var(--btn-transition), border-color var(--btn-transition), color var(--btn-transition), transform var(--btn-transition);
 }
 .btn:hover,
 .btn a:hover {
-  background-color: var(--_fg);
-  color: var(--_bg);
-  border-color: var(--_bg);
+  background-color: var(--_bd);
+  color: var(--_fg);
+  border-color: var(--_bd);
 }
 
 .btn-dark {
@@ -21877,6 +21877,11 @@ strong {
   --_fg: var(--col-white);
   --_bd: var(--col-dark-blue);
   color: var(--_fg) !important;
+}
+.btn-dark:hover {
+  background-color: var(--_fg);
+  color: var(--_bd) !important;
+  border-color: var(--_bd);
 }
 
 .btn:focus-visible {
@@ -21937,13 +21942,18 @@ strong {
   padding: 0;
 }
 #wrapperNavbar button.menu {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: var(--col-primary-400);
+  background-color: rgba(65, 252, 218, 0.8);
+  color: var(--col-dark-blue);
   border: none;
-  border-bottom-left-radius: 0.1rem;
+  border-radius: 0.5rem;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
   z-index: 9999;
+  transition: color var(--transition), background-color var(--transition);
+}
+#wrapperNavbar button.menu:hover {
+  color: #41FCDA;
+  background-color: var(--col-dark-blue);
 }
 #wrapperNavbar .offcanvas-body {
   background-color: var(--col-highlight);
@@ -23441,7 +23451,7 @@ span a {
   background-color: var(--col-star-blue);
   --rail-up-size: 740px;
   --rail-down-size: 630px;
-  --rail-speed: 5s;
+  --rail-speed: 10s;
 }
 .case-study-index__entry {
   width: 100%;

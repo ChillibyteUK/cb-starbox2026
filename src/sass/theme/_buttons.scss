@@ -27,14 +27,14 @@
 
   padding: var(--btn-py) var(--btn-px);
   border-radius: 6px;
-  border: var(--btn-border-w) solid var(--_bd);
+  border: var(--btn-border-w) solid var(--_bg);
 
   background: var(--_bg);
   color: var(--_fg);
 
   font-family: var(--ff-body);
   font-weight: var(--fw-ui);
-  font-size: var(--fs-200);
+  font-size: var(--fs-100);
   line-height: 1;
 
   transition:
@@ -44,9 +44,9 @@
     transform var(--btn-transition);
 
   &:hover {
-    background-color: var(--_fg);
-    color: var(--_bg);
-    border-color: var(--_bg);
+    background-color: var(--_bd);
+    color: var(--_fg);
+    border-color: var(--_bd);
   }
 }
 
@@ -55,6 +55,11 @@
   --_fg: var(--col-white);
   --_bd: var(--col-dark-blue);
   color: var(--_fg) !important;
+  &:hover {
+    background-color: var(--_fg);
+    color: var(--_bd) !important;
+    border-color: var(--_bd);
+  }
 }
 
 .btn:focus-visible {
