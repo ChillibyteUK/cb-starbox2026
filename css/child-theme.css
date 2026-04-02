@@ -22741,6 +22741,10 @@ span a {
 .cb-cards .cb-card__description {
   margin-bottom: 0;
 }
+.cb-cards a.cb-card {
+  display: flex;
+  flex-direction: column;
+}
 .cb-cards a.cb-card:hover {
   border-color: var(--col-highlight);
   background-color: var(--col-outline-regular);

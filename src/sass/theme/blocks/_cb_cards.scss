@@ -36,9 +36,13 @@
       margin-bottom: 0;
     }
   }
-  a.cb-card:hover {
-    border-color: var(--col-highlight);
-    background-color: var(--col-outline-regular);
+  a.cb-card {
+    display: flex;
+    flex-direction: column;
+    &:hover {
+      border-color: var(--col-highlight);
+      background-color: var(--col-outline-regular);
+    }
   }
 
   @media (min-width: 992px) {
