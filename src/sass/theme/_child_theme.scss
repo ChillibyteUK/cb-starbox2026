@@ -26,11 +26,16 @@ main {
 .split-page {
   padding-top: calc(var(--h-top) + 3rem);
   .split-image {
+    @media (max-width: 991px) {
+      aspect-ratio: 1 / 1;
+    }
     position: sticky;
     top: calc(var(--h-top) + 3rem);
-    height: calc(100vh - var(--h-top) - 3rem);
     object-fit: cover;
     border-radius: var(--radius-regular);
+    @media (min-width: 992px) {
+      height: calc(100vh - var(--h-top) - 3rem);
+    }
   }
   h1 {
     color: var(--col-star-blue);

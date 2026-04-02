@@ -23886,10 +23886,19 @@ main {
 .split-page .split-image {
   position: sticky;
   top: calc(var(--h-top) + 3rem);
-  height: calc(100vh - var(--h-top) - 3rem);
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: var(--radius-regular);
+}
+@media (max-width: 991px) {
+  .split-page .split-image {
+    aspect-ratio: 1/1;
+  }
+}
+@media (min-width: 992px) {
+  .split-page .split-image {
+    height: calc(100vh - var(--h-top) - 3rem);
+  }
 }
 .split-page h1, .split-page .h1 {
   color: var(--col-star-blue);
