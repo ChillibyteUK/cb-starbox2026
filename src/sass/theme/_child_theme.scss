@@ -17,6 +17,11 @@ main {
   position: relative;
   z-index: 1;
   background-color: var(--col-white);
+  @media (min-width: 1200px) {
+    > .container {
+      padding-inline: 2rem;
+    }
+  }
 }
 
 #page {

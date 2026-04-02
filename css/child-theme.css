@@ -23875,6 +23875,11 @@ main {
   z-index: 1;
   background-color: var(--col-white);
 }
+@media (min-width: 1200px) {
+  main > .container, main > .wp-block-group:not(.alignfull) {
+    padding-inline: 2rem;
+  }
+}
 
 #page {
   background-color: var(--col-white);
