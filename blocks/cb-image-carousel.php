@@ -32,7 +32,7 @@ if ( empty( $images ) || ! is_array( $images ) ) {
 						?>
 						<div class="cb-image-carousel__slide">
 							<div class="cb-image-carousel__media">
-								<?= wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'cb-image-carousel__image', 'alt' => $alt ) ); ?>
+								<?= wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'cb-image-carousel__image', 'alt' => $alt, 'loading' => 'eager' ) ); ?>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -49,29 +49,6 @@ add_action(
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 	if (typeof window.gsap === 'undefined') return;
-
-	function whenImagesReady(scope, callback) {
-		var images = scope.querySelectorAll('img');
-		if (!images.length) {
-			callback();
-			return;
-		}
-
-		var pending = images.length;
-		function done() {
-			pending--;
-			if (pending <= 0) callback();
-		}
-
-		images.forEach(function(img) {
-			if (img.complete && img.naturalWidth > 0) {
-				done();
-				return;
-			}
-			img.addEventListener('load', done, { once: true });
-			img.addEventListener('error', done, { once: true });
-		});
-	}
 
 	function measureSlidesWidth(wrapperEl) {
 		var slides = wrapperEl.querySelectorAll('.cb-image-carousel__slide');
@@ -102,36 +79,34 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 		if (!originalSlides.length) return;
 
-		whenImagesReady(wrapper, function() {
-			wrapper.innerHTML = '';
+		wrapper.innerHTML = '';
+		originalSlides.forEach(function(slide) {
+			wrapper.appendChild(slide.cloneNode(true));
+		});
+
+		var singleSetWidth = measureSlidesWidth(wrapper);
+		if (!singleSetWidth) return;
+
+		var minBaseSets = Math.max(2, Math.ceil(container.clientWidth / singleSetWidth) + 1);
+		for (var i = 1; i < minBaseSets; i++) {
 			originalSlides.forEach(function(slide) {
 				wrapper.appendChild(slide.cloneNode(true));
 			});
+		}
 
-			var singleSetWidth = measureSlidesWidth(wrapper);
-			if (!singleSetWidth) return;
+		var baseSetMarkup = wrapper.innerHTML;
+		var baseWidth = measureSlidesWidth(wrapper);
+		if (!baseWidth) return;
 
-			var minBaseSets = Math.max(2, Math.ceil(container.clientWidth / singleSetWidth) + 1);
-			for (var i = 1; i < minBaseSets; i++) {
-				originalSlides.forEach(function(slide) {
-					wrapper.appendChild(slide.cloneNode(true));
-				});
-			}
+		wrapper.innerHTML += baseSetMarkup;
 
-			var baseSetMarkup = wrapper.innerHTML;
-			var baseWidth = measureSlidesWidth(wrapper);
-			if (!baseWidth) return;
-
-			wrapper.innerHTML += baseSetMarkup;
-
-			var pxPerSecond = 90;
-			var duration = baseWidth / pxPerSecond;
-			gsap.to(wrapper, {
-				x: -baseWidth,
-				duration: duration,
-				ease: 'none',
-				repeat: -1,
-			});
+		var pxPerSecond = 90;
+		var duration = baseWidth / pxPerSecond;
+		gsap.to(wrapper, {
+			x: -baseWidth,
+			duration: duration,
+			ease: 'none',
+			repeat: -1,
 		});
 	});
 });
