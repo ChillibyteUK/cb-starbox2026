@@ -35,10 +35,10 @@ get_header();
 			<div class="case-study__quote-author"><?= esc_html( get_the_title( get_field( 'quote', get_the_ID() )[0] ) ); ?></div>
 		</div>
 		<div class="row g-5" style="padding-top: 5.5rem">
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'split-image' ) ); ?> 
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-8">
 				<?php
 				the_content();
 
