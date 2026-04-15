@@ -1,0 +1,14 @@
+.cb-word-columns {
+  padding-bottom: 3rem;
+
+  &__word {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--ff-heading);
+    font-size: clamp(1.75rem, 2.5vw, 3rem);
+    font-weight: var(--fw-black);
+    line-height: 0.95;
+    color: var(--col-dark-blue);
+    text-wrap: balance;
+  }
+}

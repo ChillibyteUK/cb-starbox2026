@@ -87,6 +87,12 @@
           "slug": "teal",
           "color": "#2cb6c5",
           "origin": "theme"
+        },
+        {
+          "name": "pink",
+          "slug": "pink",
+          "color": "#ff1378",
+          "origin": "theme"
         }
       ]
     },

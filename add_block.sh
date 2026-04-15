@@ -1,7 +1,28 @@
 #!/bin/bash
 
-# Prompt for block name
-read -p "Enter block name: " block_name
+include_color=false
+
+while getopts ":c" opt; do
+  case "$opt" in
+    c)
+      include_color=true
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      echo "Usage: $0 [-c]"
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
+# Prompt for block name (or use first positional argument)
+if [ -n "$1" ]; then
+  block_name="$1"
+else
+  read -p "Enter block name: " block_name
+fi
 
 # Exit if empty
 if [ -z "$block_name" ]; then
@@ -42,7 +63,9 @@ style_file="./style.css"
 package=$(grep "Text Domain:" "$style_file" | sed 's/.*Text Domain:[ ]*//')
 
 # Create files
-echo "<?php
+if [ "$include_color" = true ]; then
+  cat > "$php_file" <<EOF
+<?php
 /**
  * Block template for ${block_name}.
  *
@@ -50,7 +73,30 @@ echo "<?php
  */
 
 defined( 'ABSPATH' ) || exit;
-" > "$php_file"
+
+// Support Gutenberg color picker.
+\$bg         = ! empty( \$block['backgroundColor'] ) ? 'has-' . \$block['backgroundColor'] . '-background-color' : '';
+\$fg         = ! empty( \$block['textColor'] ) ? 'has-' . \$block['textColor'] . '-color' : '';
+\$section_id = \$block['anchor'] ?? null;
+\$extra      = \$block['className'] ?? 'py-5';
+
+?>
+<section class="${block_kebab} <?= esc_attr( trim( \$bg . ' ' . \$fg . ' ' . \$extra ) ); ?>" id="<?= esc_attr( \$section_id ); ?>">
+
+</section>
+EOF
+else
+  cat > "$php_file" <<EOF
+<?php
+/**
+ * Block template for ${block_name}.
+ *
+ * @package ${package}
+ */
+
+defined( 'ABSPATH' ) || exit;
+EOF
+fi
 
 touch "$scss_file"
 echo "Created: $php_file"
@@ -66,25 +112,37 @@ fi
 # Define the marker comment to look for
 marker_comment="// INSERT NEW BLOCKS HERE."
 
+color_support=""
+if [ "$include_color" = true ]; then
+  color_support=$(cat <<'EOF'
+          'color'     => array(
+            'background' => true,
+            'text'       => true,
+          ),
+EOF
+)
+fi
+
 # Insert block registration code at the marker comment
 block_code=$(cat <<EOF
 
-        acf_register_block_type(
-            array(
-                'name'            => '${block_slug}',
-                'title'           => __( '${block_name}' ),
-                'category'        => 'layout',
-                'icon'            => 'cover-image',
-                'render_template' => 'blocks/${block_kebab}.php',
-                'mode'            => 'edit',
-                'supports'        => array(
-                    'mode'      => false,
-                    'anchor'    => true,
-                    'className' => true,
-                    'align'     => true,
-                ),
-            )
-        );
+		acf_register_block_type(
+			array(
+				'name'            => '${block_slug}',
+				'title'           => __( '${block_name}' ),
+				'category'        => 'layout',
+				'icon'            => 'cover-image',
+				'render_template' => 'blocks/${block_kebab}.php',
+				'mode'            => 'edit',
+				'supports'        => array(
+					'mode'      => false,
+					'anchor'    => true,
+					'className' => true,
+					'align'     => true,
+          ${color_support}
+				),
+			)
+		);
 EOF
 )
 

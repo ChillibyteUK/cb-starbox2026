@@ -17,6 +17,66 @@ function acf_blocks() {
 
 		// INSERT NEW BLOCKS HERE.
 
+		acf_register_block_type(
+			array(
+				'name'            => 'cb_testimonial',
+				'title'           => __( 'CB Testimonial' ),
+				'category'        => 'layout',
+				'icon'            => 'cover-image',
+				'render_template' => 'blocks/cb-testimonial.php',
+				'mode'            => 'edit',
+				'supports'        => array(
+					'mode'      => false,
+					'anchor'    => true,
+					'className' => true,
+					'align'     => true,
+          
+				),
+			)
+		);
+
+		acf_register_block_type(
+			array(
+				'name'            => 'cb_icon_grid',
+				'title'           => __( 'CB Icon Grid' ),
+				'category'        => 'layout',
+				'icon'            => 'cover-image',
+				'render_template' => 'blocks/cb-icon-grid.php',
+				'mode'            => 'edit',
+				'supports'        => array(
+					'mode'      => false,
+					'anchor'    => true,
+					'className' => true,
+					'align'     => true,
+                    'color'     => array(
+						'background' => true,
+						'text'       => true,
+					),
+				),
+			)
+		);
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_text_image',
+                'title'           => __( 'CB Text Image' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-text-image.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+					'color'     => array(
+						'background' => true,
+						'text'       => true,
+					)
+                ),
+            )
+        );
+
 
         acf_register_block_type(
             array(
@@ -208,6 +268,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_image_carousel',
+                'title'           => __( 'CB Image Carousel' ),
+                'category'        => 'layout',
+                'icon'            => 'images-alt2',
+                'render_template' => 'blocks/cb-image-carousel.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_service_nav',
                 'title'           => __( 'CB Service Nav' ),
                 'category'        => 'layout',
@@ -230,6 +307,23 @@ function acf_blocks() {
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
                 'render_template' => 'blocks/cb-cards.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_word_columns',
+                'title'           => __( 'CB Word Columns' ),
+                'category'        => 'layout',
+                'icon'            => 'editor-ol',
+                'render_template' => 'blocks/cb-word-columns.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,

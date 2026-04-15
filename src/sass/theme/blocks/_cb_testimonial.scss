@@ -1,0 +1,25 @@
+.cb-testimonial {
+    background-color: var(--col-star-blue);
+    h2 {
+        text-align: center;
+    }
+    img {
+        aspect-ratio: 1 / 1;
+        border-radius: 999vw;
+        object-fit: cover;
+        max-width: 250px;
+        margin-inline: auto;
+    }
+    &__quote {
+        color: var(--col-white);
+        font-size: var(--fs-300);
+        margin-bottom: 1rem;
+    }
+    &__attribution {
+        color: var(--col-pink);
+        font-family: var(--ff-heading);
+        font-weight: var(--fw-black);
+        font-size: var(--fs-600);
+        text-transform: uppercase;
+    }
+}
