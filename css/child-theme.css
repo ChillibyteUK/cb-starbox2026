@@ -24707,6 +24707,23 @@ for (; i < all.length; i++) {
   border-bottom: 1px solid var(--col-lime-900);
 }
 
+.careers-button {
+  background-color: var(--col-pink);
+  padding: 0.5rem 1rem;
+  color: var(--col-white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-black);
+  font-size: var(--fs-200);
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
+}
+.careers-button:hover {
+  background-color: var(--col-white);
+  color: var(--dark-blue);
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
