@@ -108,14 +108,14 @@ h2,
 h3,
 .h3 {
   font-family: var(--ff-heading);
-  font-size: var(--fs-h3-page-subtitle);
+  font-size: var(--fs-500);
   line-height: 1.2;
   // text-wrap: balance;
 }
 h4,
 .h4 {
   font-family: var(--ff-heading);
-  font-size: var(--fs-h4-body-bold);
+  font-size: var(--fs-400);
   line-height: var(--lh-h4-body-bold);
   // text-wrap: balance;
 }
