@@ -38,6 +38,35 @@ if ( session_status() === PHP_SESSION_NONE ) {
         as="font" type="font/woff2" crossorigin="anonymous">
 	
     <?php
+    if ( is_front_page() ) {
+        ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "StarBox Accountants",
+  "alternateName": "StarBox",
+  "parentOrganization":"Carpenter Box",
+  "url": "https://www.starbox.co.uk/",
+  "logo": "https://www.starbox.co.uk/wp-content/themes/cb-starbox2026/img/starbox-logo.webp",
+  "telephone":"+441273043678",
+  "description": "StarBox is an award winning specialist firm of accountants providing professional services to individuals and businesses in the creative industry, from actors to sports, content creators, influencers and YouTubers.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Brighton, UK",
+    "postalCode": "BN1 4BH",
+    "streetAddress": "26 Stroudley Road, Brighton, BN1 4BH"},
+  "sameAs": [
+    "https://www.instagram.com/starbox_accountants/",
+    "https://x.com/starboxaccounts",
+    "https://www.youtube.com/@starbox9231",
+    "https://www.tiktok.com/@starboxaccountants",
+    "https://www.linkedin.com/company/starbox-accountants"
+  ]
+}
+</script>
+        <?php
+    }
     if ( ! is_user_logged_in() ) {
         if ( get_field( 'ga_property', 'options' ) ) {
             ?>
