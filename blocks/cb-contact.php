@@ -18,16 +18,19 @@ defined( 'ABSPATH' ) || exit;
 
 					<?php
 					if ( get_field( 'contact_email', 'option' ) ) {
-						echo '<div>' . do_shortcode( '[contact_email]' ) . '</div>';
+						echo '<div class="mt-3">' . do_shortcode( '[contact_email]' ) . '</div>';
 					}
 					if ( get_field( 'contact_phone', 'option' ) ) {
-						echo '<div>' . do_shortcode( '[contact_phone]' ) . '</div>';
+						echo '<div class="mt-3">' . do_shortcode( '[contact_phone]' ) . '</div>';
+					}
+					if ( get_field( 'contact_address', 'option' ) ) {
+						echo '<div class="mt-3">' . do_shortcode( '[contact_address]' ) . '</div>';
 					}
 					?>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<?= do_shortcode( '[gravityform id="1" title="false" ajax="true"]'); ?>
+				<?= do_shortcode( '[gravityform id="1" title="false" ajax="true"]' ); ?>
 			</div>
 		</div>
 	</div>

@@ -9,6 +9,11 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$address = get_field( 'contact_address', 'option' );
+
+$address = str_replace( '<br />', ', ', $address );
+
 ?>
 <div id="footer-top"></div>
 
@@ -69,7 +74,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="container px-4 px-md-5 py-4 footer__colophon d-flex gap-2 flex-wrap justify-content-between align-items-center">
 		<div>
 		&copy; <?= esc_html( gmdate( 'Y' ) ); ?> StarBox is a trading name of <a href="https://www.carpenterbox.com/" target="_blank">Carpenter Box Limited</a><br>
-		<?= do_shortcode( '[contact_phone]' ); ?> / <?= do_shortcode( '[contact_email]' ); ?>
+		<?= do_shortcode( '[contact_phone]' ); ?> / <?= do_shortcode( '[contact_email]' ); ?> / <?= esc_html( $address ); ?>
 		</div>
 		<div>
 			<a href="/privacy-policy/">Privacy Policy</a> / <a href="/cookies/">Cookies</a>
@@ -178,7 +183,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 );
 
-wp_footer(); ?>
+wp_footer();
+
+?>
 </body>
 
 </html>
