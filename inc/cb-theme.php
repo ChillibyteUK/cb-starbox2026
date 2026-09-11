@@ -563,3 +563,51 @@ function ( $field ) {
 }
 );
 
+/**
+ * Blog posts store their real author in the ACF 'author' field (a team_member
+ * post), which is often different from the WordPress user who published the
+ * post. Point Yoast's meta author tag and Article schema at the ACF author
+ * instead of the WP post author.
+ */
+add_filter(
+	'wpseo_meta_author',
+	function ( $author_name, $presentation ) {
+		$post_id   = $presentation->context->post->ID ?? 0;
+		$author_id = $post_id ? get_field( 'author', $post_id ) : null;
+
+		if ( $author_id ) {
+			return get_the_title( $author_id );
+		}
+
+		return $author_name;
+	},
+	10,
+	2
+);
+
+add_filter(
+	'wpseo_schema_article',
+	function ( $graph_piece, $context ) {
+		$author_id = get_field( 'author', $context->post->ID );
+
+		if ( ! $author_id ) {
+			return $graph_piece;
+		}
+
+		$graph_piece['author'] = array(
+			'@type' => 'Person',
+			'name'  => get_the_title( $author_id ),
+			'url'   => get_permalink( $author_id ),
+		);
+
+		$image = get_the_post_thumbnail_url( $author_id, 'medium' );
+		if ( $image ) {
+			$graph_piece['author']['image'] = $image;
+		}
+
+		return $graph_piece;
+	},
+	10,
+	2
+);
+
