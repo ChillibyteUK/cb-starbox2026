@@ -1,0 +1,129 @@
+.cb-service-grid {
+  padding-block: clamp(4rem, 8vw, 7rem);
+
+  &__title {
+    margin: 0;
+    color: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--ff-heading);
+    font-size: clamp(2.5rem, 5vw, 4.75rem);
+    font-weight: var(--fw-black);
+    line-height: 0.95;
+  }
+
+  &__intro {
+    max-width: 46rem;
+    margin: 1.5rem auto 0;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  &__grid {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  &__card {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+    border: 1px solid var(--col-outline-regular);
+    border-radius: 0.25rem;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      border-color var(--transition),
+      background-color var(--transition);
+  }
+
+  a.cb-service-grid__card:hover,
+  a.cb-service-grid__card:focus-visible {
+    border-color: var(--col-white);
+  }
+
+  &__image {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 1.25rem;
+    object-fit: contain;
+  }
+
+  &__card-title {
+    color: inherit;
+    margin-bottom: 0.75rem;
+    font-family: var(--ff-heading);
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 400;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  &__card-description {
+    margin: 0;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // Hover (as CB Cards): content centred, title shrinks, description appears.
+  // Card height is fixed so it never changes size.
+  @media (min-width: 992px) {
+    &__card {
+      justify-content: center;
+      height: 14rem;
+
+      .cb-service-grid__image {
+        transition:
+          width 0.35s ease,
+          height 0.35s ease,
+          margin-bottom 0.35s ease;
+      }
+
+      .cb-service-grid__card-title {
+        margin-bottom: 0;
+        transform: scale(1);
+        transform-origin: center top;
+        transition:
+          transform 0.35s ease,
+          margin-bottom 0.35s ease;
+      }
+
+      .cb-service-grid__card-description {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transform: translateY(0.75rem);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease,
+          max-height 0.35s ease;
+      }
+
+      &:hover,
+      &:focus-visible {
+        .cb-service-grid__image {
+          width: 2.5rem;
+          height: 2.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .cb-service-grid__card-title {
+          transform: scale(0.78);
+          margin-bottom: 0.25rem;
+        }
+
+        .cb-service-grid__card-description {
+          opacity: 1;
+          max-height: 8rem;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
